@@ -1,0 +1,29 @@
+# Netlify Configuration for Kashmir Tour Packages (Bilu G Travels)
+# Custom Domain: https://kashmirtourpackages.info/
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Ensure proper Content-Type headers for SEO crawlers and Google Search Console
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+    X-Robots-Tag = "all"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=UTF-8"
+    X-Robots-Tag = "all"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Single Page Application (SPA) routing rule
+# force = false ensures existing static files (sitemap.xml, robots.txt, assets) are served directly without redirection
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false

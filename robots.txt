@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Host & Sitemap location
+Sitemap: https://kashmirtourpackages.info/sitemap.xml
